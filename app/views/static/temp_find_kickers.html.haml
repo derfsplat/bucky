@@ -11,7 +11,7 @@
             Rating: 
             - 1.upto(3) do |s|
               %i.fa.fa-star
-          =link_to "View Bio", "#"
+          =link_to "View Bio", static_path(:bio)
     %h2 Top 4 <em>Punters</em>
     .find-kicker--headshot__punter
       - 1.upto(4) do |i|
@@ -22,5 +22,5 @@
             Rating: 
             - 1.upto(3) do |s|
               %i.fa.fa-star
-          =link_to "View Bio", "#"
+          =link_to "View Bio", static_path(:bio)
       

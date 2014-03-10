@@ -1,0 +1,67 @@
+.layout--content__bio
+  .content--container
+    .bio--meta
+      %h2.kicker--name Chase Briley
+      =image_tag("bio_pics/chase-bio-pic.jpg")
+      %ul.meta--list__rating
+        %li.rating--headline
+          %h3 Rating
+        %li.rating--kickoff
+          .label Kickoff Rating:
+          .result 
+            - 1.upto(5) do |s|
+              %i.fa.fa-star
+        %li.rating--field-goal
+          .label Field Goal Rating:
+          .result 
+            - 1.upto(5) do |s|
+              %i.fa.fa-star
+        %li.rating--punt
+          .label Punt Rating:
+          .result 
+            - 1.upto(4) do |s|
+              %i.fa.fa-star
+      %ul.meta--list__academics
+        %li.academic--headline
+          %h3 Academics
+        %li.academic--class
+          .label Class
+          .result 2014
+        %li.academic--gpa
+          .label GPA
+          .result 3.4
+        %li.academic--sat
+          .label SAT
+          .result 1700
+        %li.academic--act
+          .label ACT
+          .result 25
+        %li.academic--college-credits
+          .label College Credits
+          .result 35
+      %ul.meta--list__awards
+        %li.awards--headline
+          %h3 Awards
+        %li.award__all-american
+          .label All American
+          .result
+            %i.fa.fa-trophy
+        %li.award__all-state
+          .label All State
+          .result 
+            - 1.upto(2) do |s|
+              %i.fa.fa-trophy
+        %li.award__all-conference
+          .label All Conference
+          .result 
+            - 1.upto(3) do |s|
+              %i.fa.fa-trophy
+    .bio--main
+      .main__video
+        %h2 Main Video
+      .panel
+        %h2 Combine Stats
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, tempore, eveniet, fugit, quas corporis minima   officiis suscipit magnam autem aspernatur vel quod soluta nesciunt fuga enim! Adipisci, vitae itaque molestiae.
+      .panel
+        %h2 Kicking Stats
+        %p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, velit facere dolorum tempore quidem blanditiis iste recusandae omnis qui voluptatem necessitatibus excepturi earum sit a mollitia eveniet ab architecto ex.
