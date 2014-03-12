@@ -1,83 +1,59 @@
-%h1 Listing kickers
+.layout--content__kicker-list
+  .content--container
+    %h1 Kickers &amp; Punters <em>for 2014</em>
+    %h2 Top <em>Kickers</em>
+    .find-kicker--headshot__kicker
+      - @kickers.each do |kicker|
+        .panel
+          .kicker--headshot
+            =link_to image_tag("#{kicker.mug_shot_url}"), kicker
+          %h3 Joe <em>Smith</em>
+          .kicker--rating
+            Rating: 
+            - 1.upto(3) do |s|
+              %i.fa.fa-star
+          = link_to 'Bio', kicker
+          = link_to 'Edit', edit_kicker_path(kicker)
 
-%table
-  %tr
 
-    %th Contact email
+      / - @kickers.each do |kicker|
+      /   %tr
 
-    %th Contact phone
+      /     %td= kicker.contact_email
 
-    %th Dob
+      /     %td= kicker.contact_phone
 
-    %th Graduation year
+      /     %td= kicker.dob
 
-    %th Mug shot url
+      /     %td= kicker.graduation_year
 
-    %th Bio
+      /     %td= kicker.mug_shot_url
 
-    %th Gpa
+      /     %td= kicker.bio
 
-    %th Sat score
+      /     %td= kicker.gpa
 
-    %th Act score
+      /     %td= kicker.sat_score
 
-    %th College credit count
+      /     %td= kicker.act_score
 
-    %th Height inches
+      /     %td= kicker.college_credit_count
 
-    %th Weight pounds
+      /     %td= kicker.height_inches
 
-    %th Forty yd dash
+      /     %td= kicker.weight_pounds
 
-    %th Bench press
+      /     %td= kicker.forty_yd_dash
 
-    %th Vertical jump
+      /     %td= kicker.bench_press
 
-    %th Leg press
+      /     %td= kicker.vertical_jump
 
-    %th
-    %th
-    %th
+      /     %td= kicker.leg_press
 
-  - @kickers.each do |kicker|
-    %tr
+      /     %td= link_to 'Show', kicker
+      /     %td= link_to 'Edit', edit_kicker_path(kicker)
+      /     %td= link_to 'Destroy', kicker, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    
 
-      %td= kicker.contact_email
-
-      %td= kicker.contact_phone
-
-      %td= kicker.dob
-
-      %td= kicker.graduation_year
-
-      %td= kicker.mug_shot_url
-
-      %td= kicker.bio
-
-      %td= kicker.gpa
-
-      %td= kicker.sat_score
-
-      %td= kicker.act_score
-
-      %td= kicker.college_credit_count
-
-      %td= kicker.height_inches
-
-      %td= kicker.weight_pounds
-
-      %td= kicker.forty_yd_dash
-
-      %td= kicker.bench_press
-
-      %td= kicker.vertical_jump
-
-      %td= kicker.leg_press
-
-      %td= link_to 'Show', kicker
-      %td= link_to 'Edit', edit_kicker_path(kicker)
-      %td= link_to 'Destroy', kicker, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Kicker', new_kicker_path
+    = link_to 'New Kicker', new_kicker_path
