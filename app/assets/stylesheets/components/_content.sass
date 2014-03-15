@@ -20,6 +20,32 @@
       text-align: right
       +adjust-font-size-to(24px)
       +adjust-leading-to(16)
+
+%masthead
+  background-color: $white
+  border-bottom: $light-gray-border
+  padding: $default-padding * 2 0 $default-padding * 2
+  p
+    +adjust-leading-to(6)
+    clear: both
+    text-align: center
+    padding: $default-padding
+    border: $light-gray-border
+  #{headings()}
+    +margin-trailer(2)
+  h2
+    +adjust-leading-to(4)
+    +margin-trailer(0)
+
+
+%follow
+  background-color: complement($primary-color)
+  color: $white
+  padding: $default-padding / 2
+  a
+    color: $white
+    +adjust-font-size-to(12px)
+    text-decoration: none
     
 %normal-content
   background-color: $white
@@ -37,7 +63,7 @@
       +border-radius(100%)
       height: rhythm(12)
       width: rhythm(12)
-  +panel(rgba($black, .02))
+  +panel($light-gray)
   +breakpoint($sm-min-screen)
     padding: rhythm(4)
     input[type="submit"]

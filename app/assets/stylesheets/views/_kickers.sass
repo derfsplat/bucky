@@ -1,76 +1,78 @@
-[class*="__kicker-"]
-  @extend %normal-content
-  
-[class$="__kicker-bio"]
-  @extend %responsive-video
+[class$="follow"]
+  @extend %follow
   +breakpoint($sm-min-screen)
+    text-align: center
+  +breakpoint($lg-min-screen)
+    text-align: right
+[class$="__masthead"]
+  @extend %masthead
+  +meta-list
+  +breakpoint($sm-min-screen)
+    .container
+      padding: 0 $default-padding
+    [class$="content"], [class$="image"]
+      +grid-span(4,1)
+      text-align: left
     img
       width: 100%
-    [class^="meta--list"]
-      list-style: none
-      margin: 0 0 rhythm(4) 0
-      padding: 0
-      li
-        display: block
-        border-bottom: rgba($black, .3) 1px solid
-        +clearfix
-        .label
-          +float(left)
-          +font("condensed-black")
-        .result
-          +float(right)
-          span
-            margin-left: rhythm(1)
-        i
-          margin-left: rhythm(1) 
   +breakpoint($lg-min-screen)
-    [class$="meta"]
+    .container
+      padding: 0
+    [class$="image"]
       +grid-span(6, 1)
-    [class$="main"]
+    [class$="content"]
       +grid-span(18, 7)
+      [class$="__academics"]
+        +grid-span(9,1,18)
+        padding: $default-padding
+      [class$="__rating"]
+        +grid-span(9,10,18)
+        padding: $default-padding
+
+[class$="__highlights"]
+  h2
+    +margin-trailer(2)
+  +media-grid(2, 4) 
+  background-color: $medium-gray
+  border-bottom: $light-gray-border 
+  +breakpoint($sm-min-screen)
+    padding: rhythm(4)
+  +breakpoint($lg-min-screen)
+    padding: rhythm(8) 0 rhythm(4)
+  +clearfix
+  img
+    width: 100%
+  h3
+    +adjust-font-size-to(16px, 4)
+
+[class*="__kicker-"]
+  @extend %normal-content
+  +meta-list
+
+[class$="__kicker-bio"]      
+  +breakpoint($lg-min-screen)
+    [class$="masthead"]
+      +grid-span(24, 1)
+      background-color: $light-gray
+      +clearfix 
+
+    [class$="meta"]
+      +clearfix
+      .panel
+        +breakpoint($lg-min-screen)
+          +float-span(8)
+          &:nth-child(3n)
+            +float-span(8, last)
       
 
 [class$="__kicker-list"]
-  +breakpoint($sm-min-screen)
-    [class^="find-kicker"]
-      +grid-span(4,1)
-      +clearfix
-    [class^="panel"]
-      +float-span(2)
-      &:nth-child(2n)
-        +float-span(2, 'last')
-      +margin-trailer(4)
-      text-align: center
-      [class$="headshot"]
-        display: none
-        a
-          padding: 0
-          margin: 0
-          background-color: #FFF 
-        img
-          max-width: 100%
-          height: auto
-          display: block
-        +clearfix
+  .find-kicker
+    +media-grid(2, 4)
+    +clearfix
+    img
+      width: 100%
+    +breakpoint($sm-min-screen)
       h3
-        +adjust-font-size-to(18px,4.5)
+        +adjust-font-size-to(20px,4.5)
         width: 100%
         +ellipsis
-      [class$="rating"]
-        +adjust-font-size-to(14px)
-        +font("thin")
-      a
-        +btn
-        +margin-leader(2)
-  +breakpoint($lg-min-screen)
-    h2
-      clear: both
-    [class^="find-kicker"]
-      +grid-span(24,1)
-      +clearfix
-    [class^="panel"]
-      +float-span(6)
-      &:nth-child(2n)
-        +float-span(6)
-      &:nth-child(4n+4)
-        +float-span(6, 'last')

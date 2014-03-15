@@ -5,6 +5,7 @@
       
       = render 'form'
       
-      = link_to 'Show', @kicker
-      \|
-      = link_to 'Back', kickers_path
+      %nav
+        %ul
+          %li= link_to 'Show', @kicker
+          %li= link_to 'Back', kickers_path

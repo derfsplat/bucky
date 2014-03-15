@@ -2,18 +2,22 @@
   .content--container
     %h1 Kickers &amp; Punters <em>for 2014</em>
     %h2 Top <em>Kickers</em>
-    .find-kicker--headshot__kicker
-      - @kickers.each do |kicker|
-        .panel
-          .kicker--headshot
-            =link_to image_tag("#{kicker.mug_shot_url}"), kicker
-          %h3 Joe <em>Smith</em>
-          .kicker--rating
-            Rating: 
-            - 1.upto(3) do |s|
-              %i.fa.fa-star
-          = link_to 'Bio', kicker
-          = link_to 'Edit', edit_kicker_path(kicker)
+    .find-kicker
+      %ul.media-grid
+        - @kickers.each do |kicker|
+          %li
+            .kicker--headshot
+              =link_to image_tag("#{kicker.mug_shot_url}"), kicker
+              %h3 Joe <em>Smith</em>
+            .kicker--rating
+              - 1.upto(3) do |s|
+                %i.fa.fa-star
+            %nav
+              %ul
+                %li= link_to 'Bio', kicker
+                %li= link_to 'Edit', edit_kicker_path(kicker)
+
+          
 
 
       / - @kickers.each do |kicker|
