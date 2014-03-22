@@ -24,13 +24,14 @@
 %masthead
   background-color: $white
   border-bottom: $light-gray-border
-  padding: $default-padding * 2 0 $default-padding * 2
+  padding: $default-padding / 2 
   p
     +adjust-leading-to(6)
     clear: both
     text-align: center
     padding: $default-padding
     border: $light-gray-border
+    +font("thin")
   #{headings()}
     +margin-trailer(2)
   h2
@@ -49,11 +50,6 @@
     
 %normal-content
   background-color: $white
-  padding: $default-padding * 3 0
-  border-bottom: rhythm(2) $primary-color solid
-  [class$="container"]
-    +clearfix
-    padding: rhythm(8) 0
   #{headings()}
     +margin-trailer(2)
   p, li
@@ -65,7 +61,7 @@
       width: rhythm(12)
   +panel($light-gray)
   +breakpoint($sm-min-screen)
-    padding: rhythm(4)
+    padding: $default-padding / 2
     input[type="submit"]
       width: 100%
   +breakpoint($lg-min-screen)
