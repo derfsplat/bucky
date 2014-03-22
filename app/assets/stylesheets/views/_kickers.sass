@@ -7,6 +7,7 @@
 [class$="__masthead"]
   @extend %masthead
   +meta-list
+  +clearfix
   +breakpoint($sm-min-screen)
     .container
       padding: 0 $default-padding
@@ -18,51 +19,72 @@
   +breakpoint($lg-min-screen)
     .container
       padding: 0
-    [class$="image"]
-      +grid-span(6, 1)
-    [class$="content"]
-      +grid-span(18, 7)
-      [class$="__academics"]
-        +grid-span(9,1,18)
-        padding: $default-padding
-      [class$="__rating"]
-        +grid-span(9,10,18)
-        padding: $default-padding
+      [class$="info"]
+        +grid-span(24,1)
+        +clearfix
+        height: rhythm(36)
+        [class$="name"]
+          +grid-span(12, 1)
+        [class$="status"]
+          +grid-span(12, 13)
+          text-align: right
+          +font("thin")
+      [class$="meta"]
+        +grid-span(6, 2)
+        img
+          height: auto
+          width: 100%
+          +border-radius(100%)
+          background-color: $medium-gray 
+      [class*="highlight"]
+        +grid-span(15, 9)
+        background-color: $medium-gray 
+        min-height: rhythm(72)
+    // [class$="image"]
+    //   +grid-span(6, 1)
+    // [class$="content"]
+    //   +grid-span(18, 7)
+    //   [class$="__academics"]
+    //     +grid-span(9,1,18)
+    //     padding: $default-padding
+    //   [class$="__rating"]
+    //     +grid-span(9,10,18)
+//         padding: $default-padding
 
-[class$="__highlights"]
-  h2
-    +margin-trailer(2)
-  +media-grid(2, 4) 
-  background-color: $medium-gray
-  border-bottom: $light-gray-border 
-  +breakpoint($sm-min-screen)
-    padding: rhythm(4)
-  +breakpoint($lg-min-screen)
-    padding: rhythm(8) 0 rhythm(4)
-  +clearfix
-  img
-    width: 100%
-  h3
-    +adjust-font-size-to(16px, 4)
+// [class$="__highlights"]
+//   h2
+//     +margin-trailer(2)
+//   +media-grid(2, 4) 
+//   background-color: $medium-gray
+//   border-bottom: $light-gray-border 
+//   +breakpoint($sm-min-screen)
+//     padding: rhythm(4)
+//   +breakpoint($lg-min-screen)
+//     padding: rhythm(8) 0 rhythm(4)
+//   +clearfix
+//   img
+//     width: 100%
+//   h3
+//     +adjust-font-size-to(16px, 4)
 
 [class*="__kicker-"]
   @extend %normal-content
-  +meta-list
+  // +meta-list
 
-[class$="__kicker-bio"]      
-  +breakpoint($lg-min-screen)
-    [class$="masthead"]
-      +grid-span(24, 1)
-      background-color: $light-gray
-      +clearfix 
+// [class$="__kicker-bio"]      
+//   +breakpoint($lg-min-screen)
+//     [class$="masthead"]
+//       +grid-span(24, 1)
+//       background-color: $light-gray
+//       +clearfix 
 
-    [class$="meta"]
-      +clearfix
-      .panel
-        +breakpoint($lg-min-screen)
-          +float-span(8)
-          &:nth-child(3n)
-            +float-span(8, last)
+//     [class$="meta"]
+//       +clearfix
+//       .panel
+//         +breakpoint($lg-min-screen)
+//           +float-span(8)
+//           &:nth-child(3n)
+//             +float-span(8, last)
       
 
 [class$="__kicker-list"]

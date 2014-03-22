@@ -1,50 +1,59 @@
-.bio--follow
+.kicker--follow
   .container
     =link_to raw('<i class="fa fa-bookmark"></i> Follow Chase Briley'), ""
-.layout--bio__masthead
+.layout--kicker__masthead
   .container
-    .bio--main-image
-      =image_tag("#{@kicker.mug_shot_url}")
-    .bio--main-content
+    .kicker--info
       %h2.kicker--name Chase Briley <em>Combo Kicker</em>
-      .bio--meta
-        %ul.meta--list__academics
-          %li.academic--headline
-            %h3 Academics
-          %li.academic--class
-            .label Class
-            .result= @kicker.graduation_year
-          %li.academic--gpa
-            .label GPA
-            .result= @kicker.gpa
-          %li.academic--sat
-            .label SAT
-            .result= @kicker.sat_score
-          -# %li.academic--act
-          -#   .label ACT
-          -#   .result= @kicker.act_score
-          -# %li.academic--college-credits
-          -#   .label College Credits
-          -#   .result= @kicker.college_credit_count
-        %ul.meta--list__rating
-          %li.rating--headline
-            %h3 Kick Rating
-          %li.rating--kickoff
-            .label Kickoff Rating:
-            .result 
-              - 1.upto(5) do |s|
-                %i.fa.fa-star
-          %li.rating--field-goal
-            .label Field Goal Rating:
-            .result 
-              - 1.upto(5) do |s|
-                %i.fa.fa-star
-          %li.rating--punt
-            .label Punt Rating:
-            .result 
-              - 1.upto(4) do |s|
-                %i.fa.fa-star
-.layout--bio__highlights
+      .kicker--recruit-status Uncomitted
+    .kicker--meta
+      =image_tag("#{@kicker.mug_shot_url}")
+      %ul.meta--list__academics
+        %li.academic--headline
+          %h3 Academics
+        %li.academic--class
+          .label Class
+          .result= @kicker.graduation_year
+        %li.academic--gpa
+          .label GPA
+          .result= @kicker.gpa
+        %li.academic--sat
+          .label SAT
+          .result= @kicker.sat_score
+        -# %li.academic--act
+        -#   .label ACT
+        -#   .result= @kicker.act_score
+        -# %li.academic--college-credits
+        -#   .label College Credits
+        -#   .result= @kicker.college_credit_count
+
+    .kicker--highlight__featured
+
+    / .kicker--main-image
+      
+    / .kicker--main-content
+      
+    /   .kicker--meta
+        
+    /     %ul.meta--list__rating
+    /       %li.rating--headline
+    /         %h3 Kick Rating
+    /       %li.rating--kickoff
+    /         .label Kickoff Rating:
+    /         .result 
+    /           - 1.upto(5) do |s|
+    /             %i.fa.fa-star
+    /       %li.rating--field-goal
+    /         .label Field Goal Rating:
+    /         .result 
+    /           - 1.upto(5) do |s|
+    /             %i.fa.fa-star
+    /       %li.rating--punt
+    /         .label Punt Rating:
+    /         .result 
+    /           - 1.upto(4) do |s|
+    /             %i.fa.fa-star
+.layout--kicker__highlights
   .container
     %h2 Highlights
     %ul.media-grid
@@ -52,11 +61,11 @@
         %li.punt
           =image_tag("http://img.youtube.com/vi/iAKLNkgJhFE/0.jpg")
           %h3 40yd Field Goal
-.layout--content__kicker-bio
+.layout--content__kicker-kicker
   .content--container
     %p#notice= notice
     %h2 Stats
-    .bio--meta
+    .kicker--meta
       .panel
         %ul.meta--list__kicking-stats
           %li.kicking--headline
@@ -149,9 +158,9 @@
             .result 
               - 1.upto(3) do |s|
                 %i.fa.fa-trophy    
-    .bio--main
-      %h2 Bio
-      %p= @kicker.bio
+    .kicker--main
+      / %h2 kicker
+      / %p= @kicker.kicker
       
 
     %nav
@@ -175,8 +184,8 @@
 -#   %em Mug shot url:
 -#   = @kicker.mug_shot_url
 -# %p
--#   %em Bio:
--#   = @kicker.bio
+-#   %em kicker:
+-#   = @kicker.kicker
 -# %p
 -#   %em Gpa:
 -#   = @kicker.gpa
