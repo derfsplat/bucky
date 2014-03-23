@@ -1,20 +1,15 @@
 .layout--content__kicker-list
   .content--container
-    %h1 Kickers &amp; Punters <em>for 2014</em>
-    %h2 Top <em>Kickers</em>
+    %h1 Kickers &amp; Punters <em>list for 2014</em>
     .find-kicker
-      %ul.media-grid
+      %ul.content-nav
         - @kickers.each do |kicker|
           %li
-            .kicker--headshot
-              =link_to image_tag("#{kicker.mug_shot_url}"), kicker
-              %h3= kicker.users.first().full_name
+            =image_tag("#{kicker.mug_shot_url}", :class => "kicker--headshot")
+            .kicker--name=kicker.users.first().full_name
             .kicker--rating
               - 1.upto(3) do |s|
                 %i.fa.fa-star
-            %nav
-              %ul
-                %li= link_to 'Bio', kicker
-                %li= link_to 'Edit', edit_kicker_path(kicker)
+            .kicker--bio=link_to "", kicker
 
     = link_to 'New Kicker', new_kicker_path
