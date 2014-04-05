@@ -1,7 +1,7 @@
 .kicker--follow
   .container
     =link_to raw('<i class="fa fa-bookmark"></i>') + " Follow #{@kicker.users.first().full_name}", ""
-.layout--kicker__masthead
+.layout--kickers
   .container
     .kicker--info
       %h2.kicker--name
@@ -9,212 +9,92 @@
       .kicker--position Combo Kicker
       .kicker--recruit-status Uncomitted
     .kicker--meta
-      .kicker--image
-        =image_tag("#{@kicker.mug_shot_url}")
-      .kicker--academics
-        %ul.meta--list
-          %li.academic--class
-            .label Class
-            .result= @kicker.graduation_year
-          %li.academic--gpa
-            .label GPA
-            .result= @kicker.gpa
-          %li.academic--sat
-            .label SAT
-            .result= @kicker.sat_score
-          %li.academic--act
-            .label ACT
-            .result= @kicker.act_score
-          %li.academic--college-credits
-            .label College Credits
-            .result= @kicker.college_credit_count
-      .kicker--rating
-        %ul.media-grid
-          %li.rating__ko
-            .label KO <em>Rating</em>
-            .result 
-              - 1.upto(5) do |s|
-                %i.fa.fa-star
-          %li.rating__fg
-            .label FG <em>Rating</em>
-            .result 
-              - 1.upto(5) do |s|
-                %i.fa.fa-star
-          %li.rating__punt
-            .label Punt <em>Rating</em>
-            .result 
-              - 1.upto(5) do |s|
-                %i.fa.fa-star
-          %li.rating__total
-            .label Total <em>Rating</em>
-            .result 
-              - 1.upto(5) do |s|
-                %i.fa.fa-star
-    .kicker--highlight__featured
-      .video-wrapper
-        <iframe  id="ytplayer" src="https://www.youtube.com/embed/L3SZgxTdN1k?controls=0&rel=0&showinfo=0" frameborder="0"></iframe>
+      .col--left
+        .kicker--image
+          =image_tag("#{@kicker.mug_shot_url}")
+      .col--right
+        .kicker--academics
+          %ul.meta--list
+            %li.academic--class
+              .label Class
+              .result= @kicker.graduation_year
+            %li.academic--gpa
+              .label GPA
+              .result= @kicker.gpa
+            %li.academic--sat
+              .label SAT
+              .result= @kicker.sat_score
+            %li.academic--act
+              .label ACT
+              .result= @kicker.act_score
+            %li.academic--college-credits
+              .label College Credits
+              .result= @kicker.college_credit_count
+        .kicker--rating
+          %ul.media-grid
+            %li.rating__ko
+              .label KO <em>Rating</em>
+              .result 
+                - 1.upto(5) do |s|
+                  %i.fa.fa-star
+            %li.rating__fg
+              .label FG <em>Rating</em>
+              .result 
+                - 1.upto(5) do |s|
+                  %i.fa.fa-star
+            %li.rating__punt
+              .label Punt <em>Rating</em>
+              .result 
+                - 1.upto(5) do |s|
+                  %i.fa.fa-star
+            %li.rating__total
+              .label Total <em>Rating</em>
+              .result 
+                - 1.upto(5) do |s|
+                  %i.fa.fa-star
+        .kicker--bio
+          .panel= @kicker.bio
+    .kicker--stats__combine
+      %ul
+        %li
+          .label Height
+          .result
+            = @kicker.height_inches 
+            %span in.
+            
+        %li
+          .label Weight
+          .result
+            = @kicker.weight_pounds
+            %span lbs.
+        %li
+          .label Leg Press
+          .result
+            = @kicker.leg_press
+            %span lbs.
+        %li
+          .label Bench Press
+          .result
+            = @kicker.bench_press
+            %span lbs.
+        %li
+          .label 40yd Dash
+          .result
+            = @kicker.forty_yd_dash
+            %span sec.
+        %li
+          .label Vertical
+          .result
+            = @kicker.vertical_jump
+            %span in.
+    .kicker--highlights
+      .highlights--thumbs
+        -1.upto(8) do |v|
+          .video
+            .video--responsive
+              / <iframe  id="ytplayer" src="https://www.youtube.com/embed/L3SZgxTdN1k?controls=0&rel=0&showinfo=0" frameborder="0"></iframe>
+              =image_tag("http://img.youtube.com/vi/L3SZgxTdN1k/0.jpg", :class => "img-responsive")
     %nav
       %ul
         %li= link_to 'Edit', edit_kicker_path(@kicker)
         %li= link_to 'Back', kickers_path
-
-    / .kicker--main-image
-      
-    / .kicker--main-content
-      
-    /   .kicker--meta
-        
-    /     %ul.meta--list__rating
-    /       %li.rating--headline
-    /         %h3 Kick Rating
-    /       %li.rating--kickoff
-    /         .label Kickoff Rating:
-    /         .result 
-    /           - 1.upto(5) do |s|
-    /             %i.fa.fa-star
-    /       %li.rating--field-goal
-    /         .label Field Goal Rating:
-    /         .result 
-    /           - 1.upto(5) do |s|
-    /             %i.fa.fa-star
-    /       %li.rating--punt
-    /         .label Punt Rating:
-    /         .result 
-    /           - 1.upto(4) do |s|
-    /             %i.fa.fa-star
-/ .layout--kicker__highlights
-/   .container
-/     %h2 Highlights
-/     %ul.media-grid
-/       - 1.upto(8) do |s|
-/         %li.punt
-/           =image_tag("http://img.youtube.com/vi/iAKLNkgJhFE/0.jpg")
-/           %h3 40yd Field Goal
-/ .layout--content__kicker-kicker
-/   .content--container
-/     %p#notice= notice
-/     %h2 Stats
-/     .kicker--meta
-/       .panel
-/         %ul.meta--list__kicking-stats
-/           %li.kicking--headline
-/             %h3 2014 kickoff Stats
-/           %li
-/             .label Touchback %
-/             .result 90% 
-/           %li
-/             .label Avg Distance
-/             .result 65yd
-/           %li
-/             .label Avg Hang
-/             .result 4.1sec
-/       .panel
-/         %ul.meta--list__kicking-stats
-/           %li.kicking--headline
-/             %h3 2014 Field Goal Stats
-/           %li
-/             .label Attempts
-/             .result 15
-/           %li
-/             .label Success
-/             .result 82%
-/           %li
-/             .label Long
-/             .result 48yds
-/       .panel
-/         %ul.meta--list__kicking-stats
-/           %li.kicking--headline
-/             %h3 2014 Punting Stats
-/           %li
-/             .label Total Punts
-/             .result 20
-/           %li
-/             .label Avg Distance
-/             .result 43yd
-/           %li
-/             .label Avg Hang
-/             .result 4.6sec
-/       .panel    
-/         %ul.meta--list__combine-stats
-/           %li.combine--headline
-/             %h3 Combine Stats
-/           %li
-/             .label Height
-/             .result
-/               = @kicker.height_inches 
-/               %span in.
-              
-/           %li
-/             .label Weight
-/             .result
-/               = @kicker.weight_pounds
-/               %span lbs.
-/           %li
-/             .label Leg Press
-/             .result
-/               = @kicker.leg_press
-/               %span lbs.
-/           %li
-/             .label Bench Press
-/             .result
-/               = @kicker.bench_press
-/               %span lbs.
-/           %li
-/             .label 40yd Dash
-/             .result
-/               = @kicker.forty_yd_dash
-/               %span sec.
-/           %li
-/             .label Vertical
-/             .result
-/               = @kicker.vertical_jump
-/               %span in.
-/       .panel
-/         %ul.meta--list__awards
-/           %li.awards--headline
-/             %h3 Awards
-/           %li.award__all-american
-/             .label All American
-/             .result
-/               %i.fa.fa-trophy
-/           %li.award__all-state
-/             .label All State
-/             .result 
-/               - 1.upto(2) do |s|
-/                 %i.fa.fa-trophy
-/           %li.award__all-conference
-/             .label All Conference
-/             .result 
-/               - 1.upto(3) do |s|
-/                 %i.fa.fa-trophy 
-
--# %p
--#   %em Contact email:
--#   = @kicker.contact_email
--# %p
--#   %em Contact phone:
--#   = @kicker.contact_phone
--# %p
--#   %em Dob:
--#   = @kicker.dob
--# %p
--#   %em Graduation year:
--#   = @kicker.graduation_year
--# %p
--#   %em Mug shot url:
--#   = @kicker.mug_shot_url
--# %p
--#   %em kicker:
--#   = @kicker.kicker
--# %p
--#   %em Gpa:
--#   = @kicker.gpa
--# %p
--#   %em Sat score:
--#   = @kicker.sat_score
--# %p
--#   %em Act score:
--#   = @kicker.act_score
--# %p
--#   %em College credit count:
--#   = @kicker.college_credit_count

@@ -5,8 +5,8 @@
   +breakpoint($lg-min-screen)
     text-align: right
 
-[class$="__masthead"]
-  @extend %masthead
+[class$="--kickers"]
+  @extend %normal-content
   +meta-list
   +clearfix
   +breakpoint($sm-min-screen)
@@ -31,132 +31,213 @@
         +grid-span(2,1)
         img
           width: 100%
+          +border-radius(100%)
       [class$="academics"]
         +grid-span(2,3)
-    [class$="rating"]
-      clear: both
-      +padding-leader(4)
-      +clearfix
-      h3
-        text-align: center
-        padding: rhythm(2) 0
-        border-color: $medium-gray
-      +margin-leader(4)
-      +margin-trailer(4)
-      +media-grid(2, 4)
-      [class^="rating"]
-        border: $medium-gray 1px solid
-        text-align: center
-        padding: rhythm(4) 0
-        
-      .label
-        +font
-        +adjust-font-size-to(32px)
-        em
-          display: block
-          color: $primary-color
-          +adjust-font-size-to(16px, 6, 32px)
-      .result
-        +margin-leader(2)
-  // +breakpoint($lg-min-screen)
-  //   .container
-  //     padding: 0
-  //     [class$="info"]
-  //       +grid-span(24,1)
-  //       +clearfix
-  //       height: rhythm(36)
-  //       [class$="name"]
-  //         +grid-span(12, 1)
-  //       [class$="status"]
-  //         +grid-span(12, 13)
-  //         text-align: right
-  //         +font("thin")
-  //     [class$="meta"]
-  //       +grid-span(6, 2)
-  //       img
-  //         height: auto
-  //         width: 100%
-  //         +border-radius(100%)
-  //         background-color: $medium-gray 
-  //     [class*="highlight"]
-  //       +grid-span(15, 9)
-  //       background-color: $medium-gray 
-  //       min-height: rhythm(72)
-    // [class$="image"]
-    //   +grid-span(6, 1)
-    // [class$="content"]
-    //   +grid-span(18, 7)
-    //   [class$="__academics"]
-    //     +grid-span(9,1,18)
-    //     padding: $default-padding
-    //   [class$="__rating"]
-    //     +grid-span(9,10,18)
-//         padding: $default-padding
-[class$="__featured"]
-  @extend %responsive-video
-[class$="__highlights"]
-  @extend %normal-content
-  h2
-    +margin-trailer(2)
-  +media-grid(2, 4) 
-  +clearfix
-  img
-    width: 100%
-  h3
-    +adjust-font-size-to(16px, 4)
-
-[class*="__kicker-"]
-  @extend %normal-content
-  // +meta-list
-
-// [class$="__kicker-bio"]      
-//   +breakpoint($lg-min-screen)
-//     [class$="masthead"]
-//       +grid-span(24, 1)
-//       background-color: $light-gray
-//       +clearfix 
-
-//     [class$="meta"]
-//       +clearfix
-//       .panel
-//         +breakpoint($lg-min-screen)
-//           +float-span(8)
-//           &:nth-child(3n)
-//             +float-span(8, last)
-      
-[class$="__kicker-list"]
-  .find-kicker
-    ul
-      @extend %content-nav
-      .kicker--headshot
-        height: 50px
-        width: 50px
-        +border-radius(100%)
-        position: absolute
-        top: 5px
-        left: 5px
-        z-index: 10
-      .kicker--name
-        position: absolute
-        top: 0
-        left: 70px
-        line-height: 60px 
-        font-size: 24px
-        z-index: 10
-        +font
-      .kicker--bio a
-        position: absolute
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-        z-index: 1000
-        &:hover, &:active
-          background-color: rgba($medium-gray, .2) 
+      [class$="bio"]
+        display: none
       [class$="rating"]
-        position: absolute
-        bottom: 5px
-        left: 70px
-        z-index: 10
-        +adjust-font-size-to(12px)
-    +clearfix
+        clear: both
+        +padding-leader(4)
+        +clearfix
+        h3
+          text-align: center
+          padding: rhythm(2) 0
+          border-color: $medium-gray
+        +margin-leader(4)
+        +margin-trailer(4)
+        +media-grid(2, 4)
+        [class^="rating"]
+          border: $medium-gray 1px solid
+          text-align: center
+          padding: rhythm(4) 0
+          
+        .label
+          +font
+          +adjust-font-size-to(32px)
+          em
+            display: block
+            color: $primary-color
+            +adjust-font-size-to(16px, 6, 32px)
+        .result
+          +margin-leader(2)
+    [class$="--highlights"]
+      clear: both
+      +clearfix
+      +video--responsive
+      .highlights--thumbs
+        +clearfix
+        +margin-trailer(4)
+        .video
+          img
+            width: 100%
+            height: auto
+          +float-span(2, 1, 4)
+          +margin-trailer(4)
+          &:nth-child(2n)
+            +float-span(2, 'last', 4)
+    .find-kicker
+      ul
+        margin: 0 0 rhythm(4)
+        padding: 0
+        list-style: none
+        > li
+          position: relative
+          height: 60px
+          width: 100%
+          display: block
+          padding: $default-padding 0
+          +trailing-border
+          border-color: $medium-gray
+        .kicker--headshot
+          height: 50px
+          width: 50px
+          +border-radius(100%)
+          position: absolute
+          top: 5px
+          left: 5px
+          z-index: 10
+        .kicker--name
+          position: absolute
+          top: 0
+          left: 70px
+          line-height: 60px 
+          font-size: 24px
+          z-index: 10
+          +font
+        [class$="rating"]
+          position: absolute
+          bottom: 0
+          left: 70px
+          right: $default-padding
+          z-index: 10
+          font-size: 12px
+          margin: 0
+          padding: 0
+        .kicker--bio
+          position: absolute
+          right: 0
+          a 
+            +btn
+      +clearfix
+    .kicker--stats__combine
+      +clearfix
+      +margin-trailer(4)
+      +trailing-border
+      border-color: $medium-gray
+      ul
+        margin: 0
+        padding: $default-padding
+        text-align: center
+        li
+          list-style: none
+          display: block
+          width: 100%
+          border-bottom: $medium-gray 1px solid
+          +clearfix
+          .label
+            +float(left)
+          .result
+            +float(right)
+
+  
+  +breakpoint($lg-min-screen)
+    [class$="--meta"]
+      +margin-trailer(4)
+      +trailing-border
+      border-color: $medium-gray
+      [class^="col"]
+        +margin-trailer(4)
+      .col--left
+        +grid-span(9,2)
+      [class$="image"]
+        +grid-span(9,1, 9)
+        img
+          border: $medium-gray 4px solid
+      .col--right
+        +grid-span(12, 12)
+      [class$="academics"], [class$="bio"], [class$="rating"]
+        +grid-span(12,1,12)
+      [class$="academics"]
+        +margin-trailer(0)
+        ul
+          +margin-trailer(0)
+      [class$="rating"]
+        +media-grid(2, 6)
+        +margin-trailer(0)
+        +margin-leader(0)
+      [class$="bio"]
+        display: block
+        +font("light")
+        +panel($light-gray)
+        +adjust-leading-to(6)
+    [class$="--highlights"]
+      +clearfix
+      +trailing-border
+      border-color: $medium-gray
+      +margin-trailer(4)
+      +padding-trailer(4)
+      .highlights--thumbs
+        padding: 0 $default-padding
+        .video
+          +float-span(3, 1, 24)
+          +margin-trailer(4)
+          &:nth-child(2n)
+            +float-span(3, 1, 24)
+          &:nth-child(8n)
+            +float-span(3, 'last', 24)
+    .kicker--stats__combine
+      +clearfix
+      +margin-trailer(0)
+      +trailing-border
+      border-color: $medium-gray
+      ul
+        margin: 0
+        padding: 0
+        text-align: center
+        li
+          +float-span(4, 1, 24)
+          list-style: none
+          +margin-trailer(3)
+          border: none
+          .label, .result
+            display: block !important
+            +float(none)
+            width: 100%
+          .label
+            +font()
+          span
+            margin-left: .25em 
+          &:nth-child(6n)
+            +float-span(4, 'last', 24)
+    .find-kicker
+      +clearfix
+      +margin-trailer(4)
+      ul
+        margin: 0
+        padding: 0
+        +clearfix
+        > li
+          list-style: none
+          border: $medium-gray 1px solid
+          text-align: center
+          +float-span(4, 1, 24)
+          +padding-trailer(4)
+          height: auto
+          &:nth-child(6n)
+            +float-span(4, 'last', 24)
+          .kicker--headshot, .kicker--name, [class$="rating"], .kicker--bio
+            position: relative
+            top: auto
+            left: auto
+            bottom: auto
+            right: auto
+          .kicker--name
+            +adjust-leading-to(4)
+          .kicker--rating
+            +adjust-leading-to(12)
+          .kicker--headshot
+            width: 75%
+            height: auto
+            
+

@@ -1,15 +1,15 @@
-.layout--content__kicker-list
-  .content--container
+.layout--kickers
+  .container
     %h1 Kickers &amp; Punters <em>list for 2014</em>
     .find-kicker
-      %ul.content-nav
+      %ul
         - @kickers.each do |kicker|
           %li
-            =image_tag("#{kicker.mug_shot_url}", :class => "kicker--headshot")
+            =link_to image_tag("#{kicker.mug_shot_url}", :class => "kicker--headshot"), kicker
             .kicker--name=kicker.users.first().full_name
             .kicker--rating
               - 1.upto(3) do |s|
                 %i.fa.fa-star
-            .kicker--bio=link_to "", kicker
+            .kicker--bio=link_to "Bio", kicker
 
     = link_to 'New Kicker', new_kicker_path
