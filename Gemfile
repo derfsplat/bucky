@@ -10,6 +10,8 @@ end
 group :production do
   #postgresql
   gem 'pg'
+  #required for Heroku
+  gem 'rails_12factor'
 end
 
 gem 'profanity_filter'
