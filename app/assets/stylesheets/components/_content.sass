@@ -20,14 +20,36 @@
       text-align: right
       +adjust-font-size-to(24px)
       +adjust-leading-to(16)
+
+%masthead
+  background-color: $white
+  border-bottom: $light-gray-border
+  padding: $default-padding / 2 
+  p
+    +adjust-leading-to(6)
+    clear: both
+    text-align: center
+    padding: $default-padding
+    border: $light-gray-border
+    +font("thin")
+  #{headings()}
+    +margin-trailer(2)
+  h2
+    +adjust-leading-to(4)
+    +margin-trailer(0)
+
+
+%follow
+  background-color: complement($primary-color)
+  color: $white
+  padding: $default-padding / 2
+  a
+    color: $white
+    +adjust-font-size-to(12px)
+    text-decoration: none
     
 %normal-content
   background-color: $white
-  padding: $default-padding * 3 0
-  border-bottom: rhythm(2) $primary-color solid
-  [class$="container"]
-    +clearfix
-    padding: rhythm(8) 0
   #{headings()}
     +margin-trailer(2)
   p, li
@@ -37,14 +59,9 @@
       +border-radius(100%)
       height: rhythm(12)
       width: rhythm(12)
-  form
-    input[type="text"],
-    input[type="password"],
-    input[type="email"]
-      width: 100%
-  +panel(rgba($black, .02))
+  +panel($light-gray)
   +breakpoint($sm-min-screen)
-    padding: rhythm(4)
+    padding: $default-padding / 2
     input[type="submit"]
       width: 100%
   +breakpoint($lg-min-screen)

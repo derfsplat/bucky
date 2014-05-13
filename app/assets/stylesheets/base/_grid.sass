@@ -3,3 +3,27 @@
   +clearfix
   max-width: 1000px
   margin: 0 auto
+  
+=media-grid($sm-floatspan, $lg-floatspan)
+  ul.media-grid
+    margin: 0
+    padding: 0
+    > li
+      list-style: none
+      text-align: center
+      background-color: $light-gray
+      padding: rhythm(2)
+      +margin-trailer(4)
+      border: $light-gray-border
+      +breakpoint($sm-min-screen)
+        +float-span($sm-floatspan)
+        &:nth-child(#{4 / $sm-floatspan}n)
+          +float-span($sm-floatspan, 'last')
+      +breakpoint($lg-min-screen)
+        +float-span($lg-floatspan)
+        &:nth-child(#{4 / $sm-floatspan}n)
+          +float-span($lg-floatspan)
+        &:nth-child(#{24 / $lg-floatspan}n)
+          +float-span($lg-floatspan, 'last')
+        
+        

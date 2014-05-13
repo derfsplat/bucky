@@ -1,7 +1,11 @@
-%h1 Editing kicker
-
-= render 'form'
-
-= link_to 'Show', @kicker
-\|
-= link_to 'Back', kickers_path
+.layout--content__kicker-edit
+  .content--container
+    .panel
+      %h1 Editing kicker
+      
+      = render 'form'
+      
+      %nav
+        %ul
+          %li= link_to 'Show', @kicker
+          %li= link_to 'Back', kickers_path

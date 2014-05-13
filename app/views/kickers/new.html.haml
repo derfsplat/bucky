@@ -1,5 +1,9 @@
-%h1 New kicker
-
-= render 'form'
-
-= link_to 'Back', kickers_path
+.layout--content__kicker-new
+  .content--container
+    .panel
+      %h1 New kicker
+      
+      = render 'form'
+      %nav
+        %ul
+          %li= link_to 'Back', kickers_path

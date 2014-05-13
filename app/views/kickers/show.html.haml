@@ -1,71 +1,100 @@
-%p#notice= notice
-
-
-%p
-  %em Contact email:
-  = @kicker.contact_email
-
-%p
-  %em Contact phone:
-  = @kicker.contact_phone
-
-%p
-  %em Dob:
-  = @kicker.dob
-
-%p
-  %em Graduation year:
-  = @kicker.graduation_year
-
-%p
-  %em Mug shot url:
-  = @kicker.mug_shot_url
-
-%p
-  %em Bio:
-  = @kicker.bio
-
-%p
-  %em Gpa:
-  = @kicker.gpa
-
-%p
-  %em Sat score:
-  = @kicker.sat_score
-
-%p
-  %em Act score:
-  = @kicker.act_score
-
-%p
-  %em College credit count:
-  = @kicker.college_credit_count
-
-%p
-  %em Height inches:
-  = @kicker.height_inches
-
-%p
-  %em Weight pounds:
-  = @kicker.weight_pounds
-
-%p
-  %em Forty yd dash:
-  = @kicker.forty_yd_dash
-
-%p
-  %em Bench press:
-  = @kicker.bench_press
-
-%p
-  %em Vertical jump:
-  = @kicker.vertical_jump
-
-%p
-  %em Leg press:
-  = @kicker.leg_press
-
-
-= link_to 'Edit', edit_kicker_path(@kicker)
-\|
-= link_to 'Back', kickers_path
+.kicker--follow
+  .container
+    =link_to raw('<i class="fa fa-bookmark"></i>') + " Follow #{@kicker.users.first().full_name}", ""
+.layout--kickers
+  .container
+    .kicker--info
+      %h2.kicker--name
+        = @kicker.users.first().full_name 
+      .kicker--position Combo Kicker
+      .kicker--recruit-status Uncomitted
+    .kicker--meta
+      .col--left
+        .kicker--image
+          =image_tag("#{@kicker.mug_shot_url}")
+      .col--right
+        .kicker--academics
+          %ul.meta--list
+            %li.academic--class
+              .label Class
+              .result= @kicker.graduation_year
+            %li.academic--gpa
+              .label GPA
+              .result= @kicker.gpa
+            %li.academic--sat
+              .label SAT
+              .result= @kicker.sat_score
+            %li.academic--act
+              .label ACT
+              .result= @kicker.act_score
+            %li.academic--college-credits
+              .label College Credits
+              .result= @kicker.college_credit_count
+        .kicker--rating
+          %ul.media-grid
+            %li.rating__ko
+              .label KO <em>Rating</em>
+              .result 
+                - 1.upto(5) do |s|
+                  %i.fa.fa-star
+            %li.rating__fg
+              .label FG <em>Rating</em>
+              .result 
+                - 1.upto(5) do |s|
+                  %i.fa.fa-star
+            %li.rating__punt
+              .label Punt <em>Rating</em>
+              .result 
+                - 1.upto(5) do |s|
+                  %i.fa.fa-star
+            %li.rating__total
+              .label Total <em>Rating</em>
+              .result 
+                - 1.upto(5) do |s|
+                  %i.fa.fa-star
+        .kicker--bio
+          .panel= @kicker.bio
+    .kicker--stats__combine
+      %ul
+        %li
+          .label Height
+          .result
+            = @kicker.height_inches 
+            %span in.
+            
+        %li
+          .label Weight
+          .result
+            = @kicker.weight_pounds
+            %span lbs.
+        %li
+          .label Leg Press
+          .result
+            = @kicker.leg_press
+            %span lbs.
+        %li
+          .label Bench Press
+          .result
+            = @kicker.bench_press
+            %span lbs.
+        %li
+          .label 40yd Dash
+          .result
+            = @kicker.forty_yd_dash
+            %span sec.
+        %li
+          .label Vertical
+          .result
+            = @kicker.vertical_jump
+            %span in.
+    .kicker--highlights
+      .highlights--thumbs
+        -1.upto(8) do |v|
+          .video
+            .video--responsive
+              / <iframe  id="ytplayer" src="https://www.youtube.com/embed/L3SZgxTdN1k?controls=0&rel=0&showinfo=0" frameborder="0"></iframe>
+              =image_tag("http://img.youtube.com/vi/L3SZgxTdN1k/0.jpg", :class => "img-responsive")
+    %nav
+      %ul
+        %li= link_to 'Edit', edit_kicker_path(@kicker)
+        %li= link_to 'Back', kickers_path

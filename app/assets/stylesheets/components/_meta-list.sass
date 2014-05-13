@@ -1,0 +1,26 @@
+=meta-list
+  [class$="meta"]
+    +clearfix
+    [class^="meta--list"]
+      list-style: none
+      margin: 0 0 rhythm(4) 0
+      padding: 0
+      #{headings()}
+        +font("light")
+        +adjust-font-size-to(20px)
+        +adjust-leading-to(6)
+      li
+        display: block
+        border-bottom: $medium-gray-border
+        +adjust-leading-to(6)
+        +clearfix
+        .label
+          +float(left)
+          +font("light")
+        .result
+          +float(right)
+          span
+            margin-left: rhythm(1)
+          color: $dark-gray
+        i
+          margin-left: rhythm(1) 

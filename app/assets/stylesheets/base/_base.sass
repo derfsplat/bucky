@@ -53,7 +53,10 @@ form
     &[type="email"],
     &[type="search"],
     &[type="text"],
-    &[type="time"]
+    &[type="time"],
+    &[type="url"],
+    &[type="tel"],
+    &[type="number"]
       border: none
       height: $default-input-height
       line-height: $default-input-height
@@ -61,15 +64,37 @@ form
       background-color: $default-form-input-color
       +font("thin")
       padding: 0 rhythm(2)
+      width: 100%
       &:focus
         background-color: lighten($default-form-input-color, 50%)  
     &[type="submit"]
       +btn
       +margin-trailer(4)
+  select
+    //borrowed from zurb foundation
+    +adjust-font-size-to(20px)
+    padding: 0 rhythm(4) 0 rhythm(2)
+    +border-radius(0)
+    -webkit-appearance: none !important
+    border: none
+    height: $default-input-height
+    line-height: $default-input-height
+    background: $default-form-input-color url("data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==") no-repeat
+    background-position-x: 97%
+    background-position-y: center
+    +font("thin")
+    select:hover
+      background: lighten($default-form-input-color, 50%) url("data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==") no-repeat
+      background-position-x: 97%
+      background-position-y: center
   textarea
     background: none
     +border-radius(0)
+    border: none
+    min-height: $default-input-height * 2
+    padding: 0 rhythm(2)
     background-color: $default-form-input-color
+    width: 100%
   // Placeholder stylings
   ::-webkit-input-placeholder
     text-align: center
